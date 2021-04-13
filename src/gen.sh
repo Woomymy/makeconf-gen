@@ -3,6 +3,7 @@
 set -e
 
 MAKECONF_LANG="en"
+USE="python"
 
 red()
 {
@@ -28,9 +29,15 @@ get_common_flags()
 	CXXFLAGS="${COMMON_FLAGS}"
 }
 
+get_makeopts()
+{
+	MAKEOPTS="-j$(( $(nproc) + 1))"
+}
+
 main()
 {
 	get_common_flags
+	get_makeopts
 }
 
 main
