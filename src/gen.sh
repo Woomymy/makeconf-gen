@@ -46,6 +46,7 @@ get_video_cards()
 	[[ "$(lsmod | grep -i nvidia)" ]] && VIDEO_CARDS="${VIDEO_CARDS} nvidia nouveau"
 	[[ "$(lsmod | grep -i amdgpu)" ]] && VIDEO_CARDS="${VIDEO_CARDS} amdgpu"
 	[[ "$(lsmod | grep -i radeon)" ]] && VIDEO_CARDS="${VIDEO_CARDS} radeon radeonsi"
+	[[ "$(lsmod | grep -i iris)" ]] && VIDEO_CARDS="${VIDEO_CARDS} iris"
 	return 0 # If "0" ins't returned, the program will crash
 }
 
