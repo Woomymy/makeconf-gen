@@ -2,7 +2,6 @@
 
 set -e
 
-MAKECONF_LANG="en"
 USE="python"
 
 red()
@@ -34,10 +33,16 @@ get_makeopts()
 	MAKEOPTS="-j$(( $(nproc) + 1))"
 }
 
+get_lang()
+{
+	GENTOO_LANG=en
+}
+
 main()
 {
 	get_common_flags
 	get_makeopts
+	get_lang
 }
 
 main
