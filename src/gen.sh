@@ -44,5 +44,19 @@ main()
 	get_makeopts
 	get_lang
 }
-
 main
+
+cat << EOF 
+COMMON_FLAGS="${COMMON_FLAGS}"
+CFLAGS="\${COMMON_FLAGS}"
+CXXFLAGS="\${COMMON_FLAGS}"
+USE="${USE}"
+MAKEOPTS="${MAKEOPTS}"
+
+L10N="${GENTOO_LANG}"
+VIDEO_CARDS="fbdev vesa intel i915 nvidia nouveau radeon amdgpu radeonsi"
+INPUT_DEVICES="libinput synaptics keyboard mouse evdev joystick wacom"
+
+# Uncomment to enable quiet build
+#EMERGE_DEFAULT_OPTS="\${EMERGE_DEFAULT_OPTS} --quiet-build=y"
+EOF
