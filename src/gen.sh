@@ -55,7 +55,7 @@ MAKEOPTS="${MAKEOPTS}"
 
 L10N="${GENTOO_LANG}"
 VIDEO_CARDS="fbdev vesa intel i915 nvidia nouveau radeon amdgpu radeonsi"
-INPUT_DEVICES="libinput synaptics keyboard mouse evdev joystick wacom"
+INPUT_DEVICES="libinput synaptics keyboard mouse evdev"
 
 # Uncomment to enable quiet build
 #EMERGE_DEFAULT_OPTS="\${EMERGE_DEFAULT_OPTS} --quiet-build=y"
