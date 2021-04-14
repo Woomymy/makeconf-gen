@@ -50,16 +50,23 @@ get_video_cards()
 	return 0 # If "0" ins't returned, the program will crash
 }
 
+get_features()
+{
+	FEATURES="userfetch candy" # Candy feature is the best feature of portage
+}
+
 main()
 {
 	get_common_flags
 	get_makeopts
 	get_lang
 	get_video_cards
+	get_features
 }
 main
 
 cat << EOF 
+FEATURES="${FEATURES}"
 COMMON_FLAGS="${COMMON_FLAGS}"
 CFLAGS="\${COMMON_FLAGS}"
 CXXFLAGS="\${COMMON_FLAGS}"
