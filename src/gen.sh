@@ -35,7 +35,7 @@ get_makeopts()
 
 get_lang()
 {
-	GENTOO_LANG=en
+	[[ -n "${GENTOO_LANG}" ]] || GENTOO_LANG=en
 }
 
 get_video_cards()
