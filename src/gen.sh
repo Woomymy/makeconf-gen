@@ -40,10 +40,9 @@ get_lang()
 
 get_video_cards()
 {
-	#CVIDEO_CARDS="fbdev vesa intel i915 nvidia nouveau radeon amdgpu radeonsi"
 	VIDEO_CARDS="fbdev vesa"
 	[[ "$(lsmod | grep -i i915)" ]] && VIDEO_CARDS="${VIDEO_CARDS} intel i915"
-	[[ "$(lsmod | grep -i nvidia)" ]] && VIDEO_CARDS="${VIDEO_CARDS} nvidia nouveau"
+	[[ "$(lspci | grep -i nvidia)" ]] && VIDEO_CARDS="${VIDEO_CARDS} nvidia nouveau"
 	[[ "$(lsmod | grep -i amdgpu)" ]] && VIDEO_CARDS="${VIDEO_CARDS} amdgpu"
 	[[ "$(lsmod | grep -i radeon)" ]] && VIDEO_CARDS="${VIDEO_CARDS} radeon radeonsi"
 	[[ "$(lsmod | grep -i iris)" ]] && VIDEO_CARDS="${VIDEO_CARDS} iris"
