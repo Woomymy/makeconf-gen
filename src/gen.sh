@@ -51,7 +51,7 @@ get_video_cards()
 
 get_features()
 {
-	FEATURES="userfetch candy" # Candy feature is the best feature of portage
+	FEATURES="${FEATURES} userfetch candy" # Candy feature is the best feature of portage
 }
 
 main()
