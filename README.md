@@ -12,3 +12,6 @@ Generating a make.conf file
 
 You can now update things like `VIDEO_CARDS` and `INPUT_DEVICES` with any undetected material
 
+## Dependencies
+
+- `gcc`
