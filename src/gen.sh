@@ -30,7 +30,7 @@ get_common_flags()
 
 get_makeopts()
 {
-	MAKEOPTS="-j$(( $(nproc) + 1))"
+	MAKEOPTS="-j$(nproc)"
 }
 
 get_lang()
