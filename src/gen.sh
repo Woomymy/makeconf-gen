@@ -74,7 +74,7 @@ MAKEOPTS="${MAKEOPTS}"
 
 L10N="${GENTOO_LANG}"
 VIDEO_CARDS="${VIDEO_CARDS}"
-INPUT_DEVICES="libinput synaptics keyboard mouse evdev"
+INPUT_DEVICES="libinput"
 
 # Uncomment to enable quiet build
 #EMERGE_DEFAULT_OPTS="\${EMERGE_DEFAULT_OPTS} --quiet-build=y"
