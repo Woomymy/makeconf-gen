@@ -24,8 +24,6 @@ get_common_flags()
 	}
 	MARCH="$(gcc -v -E -x c -march=native -mtune=native - < /dev/null 2>&1 | grep cc1 | awk '{print $6}' | awk -F '=' '{print $2}')"
 	COMMON_FLAGS="-march=${MARCH} -O2 -pipe" # -march=native is a solution but i will break distcc. See (https://wiki.gentoo.org/wiki/Distcc/#CFLAGS_et_CXXFLAGS)
-	CFLAGS="${COMMON_FLAGS}"
-	CXXFLAGS="${COMMON_FLAGS}"
 }
 
 get_makeopts()
