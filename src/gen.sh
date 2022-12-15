@@ -38,12 +38,12 @@ get_lang()
 
 get_video_cards()
 {
-	VIDEO_CARDS="fbdev vesa"
-	[[ "$(lsmod | grep -i i915)" ]] && VIDEO_CARDS="${VIDEO_CARDS} intel i915"
-	[[ "$(lspci | grep -i nvidia)" ]] && VIDEO_CARDS="${VIDEO_CARDS} nvidia nouveau"
-	[[ "$(lsmod | grep -i amdgpu)" ]] && VIDEO_CARDS="${VIDEO_CARDS} amdgpu"
-	[[ "$(lsmod | grep -i radeon)" ]] && VIDEO_CARDS="${VIDEO_CARDS} radeon radeonsi"
-	[[ "$(lsmod | grep -i iris)" ]] && VIDEO_CARDS="${VIDEO_CARDS} iris"
+	VIDEO_CARDS=""
+	[[ "$(lsmod | grep -i i915)" ]] && VIDEO_CARDS="intel i915"
+	[[ "$(lspci | grep -i nvidia)" ]] && VIDEO_CARDS="nvidia nouveau"
+	[[ "$(lsmod | grep -i amdgpu)" ]] && VIDEO_CARDS="amdgpu"
+	[[ "$(lsmod | grep -i radeon)" ]] && VIDEO_CARDS="radeon radeonsi"
+	[[ "$(lsmod | grep -i iris)" ]] && VIDEO_CARDS="iris"
 	return 0 # If "0" ins't returned, the program will crash
 }
 
