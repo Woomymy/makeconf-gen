@@ -74,6 +74,9 @@ L10N="${GENTOO_LANG}"
 VIDEO_CARDS="${VIDEO_CARDS}"
 INPUT_DEVICES="libinput"
 
+# Accept all kind of licenses
+ACCEPT_LICENSE="*"
+
 # Use multiple emerge jobs
 EMERGE_DEFAULT_OPTS="\${EMERGE_DEFAULT_OPTS} --jobs $(nproc)"
 EOF
