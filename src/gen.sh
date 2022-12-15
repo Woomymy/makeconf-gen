@@ -52,6 +52,17 @@ get_features()
 	[[ -n "${FEATURES}" ]] || FEATURES="userfetch candy" # Candy feature is the best feature of portage
 }
 
+get_cpu_flags()
+{
+	FLAGS_LINE=""
+	if command -v cpuid2cpuflags &>/dev/null 2>&1; then
+		CPUFLAGS="$(cpuid2cpuflags)"
+		CPU_FLAGS_VAR="$(echo "${CPUFLAGS}" | awk -F ': ' '{print $1}')"
+		CPU_FLAGS_VALUES="$(echo "${CPUFLAGS}" | awk -F ': ' '{print $2}')"
+		FLAGS_LINE="${CPU_FLAGS_VAR}=\"${CPU_FLAGS_VALUES}\""
+	fi
+}
+
 main()
 {
 	get_common_flags
@@ -59,14 +70,17 @@ main()
 	get_lang
 	get_video_cards
 	get_features
+	get_cpu_flags
 }
 main
 
 cat << EOF 
 FEATURES="${FEATURES}"
+
 COMMON_FLAGS="${COMMON_FLAGS}"
 CFLAGS="\${COMMON_FLAGS}"
 CXXFLAGS="\${COMMON_FLAGS}"
+
 USE="${USE}"
 MAKEOPTS="${MAKEOPTS}"
 
@@ -79,4 +93,7 @@ ACCEPT_LICENSE="*"
 
 # Use multiple emerge jobs
 EMERGE_DEFAULT_OPTS="\${EMERGE_DEFAULT_OPTS} --jobs $(nproc)"
+
+# CPU flags (not defined if cpuid2cpuflags wasn't installed)
+${FLAGS_LINE}
 EOF
